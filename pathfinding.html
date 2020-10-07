@@ -51,15 +51,31 @@
 								<header class="major">
                                 <!-- TODO change project data-->
 									<h1>Pathfinding</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<p>A little unity gamelike pathfinding simulation implementation.<br>Designed to simulate how a drone would find it's way through a maze without knowing the map in advance.</br> </p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-							</section>
+								<div class="image main"><img src="images/Pathfinding_preview.PNG" alt="" /></div>
 
+										<h2>Implementation</h2>
+										<p>Based on a paper on drone navigation (<a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Online+Safe+Trajectory+Generation+For+Quadrotors+Using+Fast+Marching+Method+and+Bernstein+Basis+Polynomial&btnG=">here</a>)
+										reduced only to a 2D space, this implementation uses:</p>
+										<li>
+											<b>A*</b> (<a href="https://en.wikipedia.org/wiki/A*_search_algorithm">here</a>) which is a graph traversal and path search algorithm, which is often used in many fields of computer science due to its completeness and optimality.
+											It is used to find the most optimal path at a certain time. However when the drone moves and finds more obstacles the path might need to be recomputed. In the following examples, the thick green line represents the current path the drone will take.	
+										</li>
+										<div class="image main"><img src="images/Astar.gif" alt="" /></div>
+										<br></br>
+										<li>
+											<b>Bernstein polynomial </b> (<a href="https://en.wikipedia.org/wiki/Bernstein_polynomial">here</a>)
+											is a polynomial in the Bernstein form, that is a linear combination of Bernstein basis polynomials.
+											The main idea is that this numerical basis helps in approximating a curve. In this case Bézier curve (<a href="https://en.wikipedia.org/wiki/B%C3%A9zier_curve" >here</a>) is a common parametric curve used in computer graphics.
+											<span class="image right"><img src="images/BezierCurves.gif" alt="" /></span>
+											</br>For an easy explanation, having two conected segments ([P0,P1] and [P1,P2]), we start from one side on both of them (P0 and P1) and move along to the other end. 
+											For each pair of two points we draw a line (the green line in the gif) and consider the middle point as part of the future curve, as you can see in the image on the right.
+										</li>
+							</section>
+							<div>
+								<h3>Adding video soon!</h3>
+							</div>
 					</div>
 
 				<!-- Footer -->
